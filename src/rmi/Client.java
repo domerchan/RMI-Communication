@@ -10,6 +10,8 @@ import java.rmi.Naming;
 import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
 
+import java.util.Scanner;
+
 /**
  *
  * @author Domenica
@@ -35,7 +37,12 @@ public class Client {
         
         */
         Interface service = (Interface) Naming.lookup("rmi://localhost:1234/hello");
-        System.out.println(service.add(5, 10));
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Ingresar primer valor");
+        int a = sc.nextInt();
+        System.out.println("Ingresar segundo valor");
+        int b = sc.nextInt();
+        System.out.println(service.add(a, b));
     }
     
 }
